@@ -1,0 +1,22 @@
+site_name: Ebakus Documentation
+site_description: Documentation for Ebakus blockchain stuff.
+site_url: https://docs.ebakus.com/
+site_author: Ebakus Team
+repo_url: https://github.com/ebakus/ebakus-docs/
+edit_uri: edit/master/docs/
+use_directory_urls: true
+theme:
+  # https://github.com/squidfunk/mkdocs-material/tree/master/src
+  name: 'material'
+nav:
+  - 'Overview': index.md
+  - 'About': about.md
+markdown_extensions:
+  - abbr
+  - attr_list
+  - codehilite
+  - def_list
+  - smarty
+  - toc:
+      permalink: True
+copyright: 'ebakus - All rights reserved - 2019'
