@@ -1,22 +1,83 @@
+# Project information
 site_name: Ebakus Documentation
 site_description: Documentation for Ebakus blockchain stuff.
 site_url: https://docs.ebakus.com/
-site_author: Ebakus Team
-repo_url: https://github.com/ebakus/ebakus-docs/
-edit_uri: edit/master/docs/
+site_author: The Ebakus Team
+
+# Repository
+repo_name: ebakus/ebakus-docs
+repo_url: https://bitbucket.org/harkal/ebakus-docs/
+# repo_url: https://github.com/ebakus/ebakus-docs/
+# edit_uri: edit/master/docs/
+
 use_directory_urls: true
+
+# Copyright
+copyright: 'Copyright &copy; 2019 ebakus - All rights reserved'
+
+# Configuration
 theme:
   # https://github.com/squidfunk/mkdocs-material/tree/master/src
   name: 'material'
+  custom_dir: themes/material/
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  feature:
+    tabs: true
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+#   favicon: assets/images/favicon.png
+#   logo:
+#     icon: "\uE80C"
 nav:
   - 'Overview': index.md
   - 'About': about.md
+# Page tree
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: timeago
+
+# Customization
+extra:
+  social:
+    - type: globe
+      link: https://www.ebakus.com/
+    - type: github-alt
+      link: https://github.com/ebakus
+    - type: twitter
+      link: https://twitter.com/EbakusNetwork
+    - type: linkedin
+      link: https://www.linkedin.com/company/ebakus-blockchain/
+    - type: telegram
+      link: https://t.me/ebakus
+
+# Extensions
 markdown_extensions:
   - abbr
+  - admonition
   - attr_list
   - codehilite
   - def_list
+  # - meta
   - smarty
   - toc:
       permalink: True
-copyright: 'ebakus - All rights reserved - 2019'
+  - pymdownx.superfences
+
+# google_analytics: ['', 'docs.ebakus.com']
