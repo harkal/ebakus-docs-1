@@ -34,7 +34,7 @@ import Web3 from 'web3'
 const web3 = Web3Ebakus(new Web3())
 ```
 
-You can also have a look at the [example page](example/index.html).
+You can also have a look at the [example page](https://github.com/ebakus/web3-ebakus/blob/master/example/index.html).
 
 ## Methods
 

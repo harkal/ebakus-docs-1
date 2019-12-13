@@ -10,10 +10,26 @@ repo_url: https://bitbucket.org/harkal/ebakus-docs/
 # repo_url: https://github.com/ebakus/ebakus-docs/
 # edit_uri: edit/master/docs/
 
-use_directory_urls: true
 
 # Copyright
 copyright: 'Copyright &copy; 2019 ebakus - All rights reserved'
+
+# Page tree
+nav:
+  - 'index.md'
+  - Becoming a Block Producer: 'becoming-a-block-producer.md'
+  - Migrating your ERC-20 EBK to Native EBK for the mainnet: 'migrating-your-erc-20-ebk-to-native-ebk-for-the-mainnet.md'
+  - Developing Applications with ebakus:
+    - Gettting started with ebakus development: 'developing-applications-with-ebakus/gettting-started-with-ebakus-development.md'
+    - Migrating your ethereum dApp to ebakus: 'developing-applications-with-ebakus/migrating-your-ethereum-d-app-to-ebakus.md'
+    - Running a local testnet: 'developing-applications-with-ebakus/running-a-local-testnet.md'
+    - Using ebakusDB: 'developing-applications-with-ebakus/using-ebakus-db.md'
+    - The ebakus development stack:
+        - Ebakus node: 'developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-node.md'
+        - Ebakus wallet: 'developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-wallet.md'
+        - Wallet loader: 'developing-applications-with-ebakus/the-ebakus-development-stack/wallet-loader.md'
+        - web3-ebakus: 'developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus.md'
+
 
 # Configuration
 theme:
@@ -42,10 +58,9 @@ theme:
 #   favicon: assets/images/favicon.png
 #   logo:
 #     icon: "\uE80C"
-nav:
-  - 'Overview': index.md
-  - 'About': about.md
-# Page tree
+
+use_directory_urls: true
+
 plugins:
   - search
   - minify:
