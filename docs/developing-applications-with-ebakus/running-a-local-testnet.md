@@ -1,6 +1,4 @@
-# Public testnet v4
-
-## Ebakus Node
+# Running a local testnet
 
 ### Working with the ebakus full node
 

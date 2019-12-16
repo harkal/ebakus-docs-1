@@ -1,6 +1,6 @@
-# web3-ebakus library for web3.js
+# web3-ebakus
 
-Extend Web3.js functionality for [Ebakus](https://ebakus.com) blockchain.
+Extend Web3 functionality for [Ebakus](https://ebakus.com) blockchain.
 
 ## Installation
 
@@ -12,25 +12,18 @@ npm install --save web3-ebakus
 
 ### In the Browser
 
-Load it from CDN:
-
-```
-<script src="https://unpkg.com/web3-ebakus"></script>
-```
-
-or build running the following from the root folder of the repository:
+Build running the following from the root folder of the repository:
 
 ```bash
 npm run-script build
 ```
 
-Then include `lib/web3-ebakus.browser.min.js` in your html file.
+Then include `lib/web3-ebakus.browser.js` in your html file.
 This will expose the `Web3Ebakus` object on the window object.
 
 ## Requirements
 
 - Web3 ^1.2.0
-
 
 ## Usage
 
@@ -50,7 +43,8 @@ You can also have a look at the [example page](https://github.com/ebakus/web3-eb
 The `suggestDifficulty` queries the node for the suggested target difficulty needed for the PoW in order for a transaction to enter a block taking into account current congestion levels and address stake. The difficulty will be used in `calculateWorkForTransaction`.
 
 ```js
-web3.eth.suggestDifficulty(accountAddress)
+web3.eth
+  .suggestDifficulty(accountAddress)
   .then(difficulty => console.log(difficulty))
 ```
 
@@ -62,11 +56,9 @@ The `calculateWorkForTransaction` calculates the PoW needed for a transaction to
 const tx = {
   /* transaction object */
 }
-
-web3.eth.calculateWorkForTransaction(tx, /* targetDifficulty */ 1)
-  .then(tx => {
-    /* do something with tx */
-  })
+web3.eth.calculateWorkForTransaction(tx, /* targetDifficulty */ 1).then(tx => {
+  /* do something with tx */
+})
 ```
 
 > is also available for `Account` objects, which is useful for chaining
@@ -79,30 +71,31 @@ The `ctrlWorkForTransactionState` and `callback` parameters are optional.
   - `getCurrentWorkNonce()`: returns the current workNonce while worker is running
   - `kill()`: kills the worker
 
-    !!!example
-        ```js
-        let ctrl = {}
+  Example:
 
-        // log worker state every 500ms
-        const logger = setInterval(() => {
-        console.log('isRunning', ctrl.isRunning())
-        console.log('getCurrentWorkNonce', ctrl.getCurrentWorkNonce())
+  ```js
+  let ctrl = {}
 
-        // stop logging once worker finished
-        if (!ctrl.isRunning()) {
-            clearInterval(logger)
-        }
-        }, 500)
+  // log worker state every 500ms
+  const logger = setInterval(() => {
+    console.log('isRunning', ctrl.isRunning())
+    console.log('getCurrentWorkNonce', ctrl.getCurrentWorkNonce())
 
-        // kill worker after 3seconds
-        // setTimeout(() => {
-        //   ctrl.kill();
-        // }, 3000);
+    // stop logging once worker finished
+    if (!ctrl.isRunning()) {
+      clearInterval(logger)
+    }
+  }, 500)
 
-        web3.eth.calculateWorkForTransaction(transaction, 1, ctrl).then(tx => {
-        /* do something with tx */
-        })
-        ```
+  // kill worker after 3seconds
+  // setTimeout(() => {
+  //   ctrl.kill();
+  // }, 3000);
+
+  web3.eth.calculateWorkForTransaction(transaction, 1, ctrl).then(tx => {
+    /* do something with tx */
+  })
+  ```
 
 - `callback`: you can read more [here](https://web3js.readthedocs.io/en/1.0/callbacks-promises-events.html)
 
@@ -114,10 +107,8 @@ The `db.select` allows performing selects with conditions ordered by column name
 - `tableName`: table name
 - `whereClause`: where condition for finding an entry
   Supported conditions are "<", ">", "=", "==", "<=", ">=", "!=", "LIKE"
-
-    !!!example "Example use cases"
-        `Phone = "555-1111"`, `Id >= 3`
-
+  Example use case: Phone = "555-1111"
+  Id >= 3
 - `orderClause`: order clause for sorting the results using "ASC" or "DESC"
   Example use case: Phone DESC
 - `blockNumber`: block number to read from EbakusDB state. You can use `latest` string for fetching from latest block.
@@ -138,6 +129,7 @@ The `db.next` returns the next result of the select performed through `web3.db.s
 The `db.get` allows fetching a single item. Check for its params at `web3.db.select()`.
 
 ```js
-web3.db.get(contractAddress, tableName, whereCondition, orderByColumn, blockNumber)
+web3.db
+  .get(contractAddress, tableName, whereCondition, orderByColumn, blockNumber)
   .then(entry => console.log(entry))
 ```

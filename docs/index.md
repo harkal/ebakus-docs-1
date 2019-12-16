@@ -1,5 +1,5 @@
 ---
-title: Introduction to Ebakus
+title: General Information
 description: The ebakus development stack allows developers to create highly responsive and frictionless decentralized applications that are a delight for users to use.
 # author:
 #   - Teo Teodoridis
@@ -12,7 +12,7 @@ The ebakus development stack allows developers to create highly responsive and f
 
 The backbone of the ebakus development stack is the ebakus blockchain. It is fast, it has free transactions while remaining sybil resistant and is 100% backwards compatible with ethereum's go-ethereum node. This means that everything you have built for ethereum can be easily ported to work with ebakus.
 
-Besides the performance and accessibility gains, ebakus also extends the EVM with ebakusDB. A decentralized transactional database that makes handling of large datasets a breeze. It has tables with multiple indexes and allows to sort large datasets fast and easy.
+Besides the performance and accessibility improvements, ebakus also extends Solidity with ebakusDB. A decentralized transactional database that makes handling of large datasets a breeze. It supports tables with multiple indexes and allows to sort large datasets fast and easy.
 
 ##  DPOS consensus
 
@@ -23,13 +23,15 @@ In DPOS the blocks are produced by the *block producers,* which are elected thro
 Ebakus has 21 block producers,
 
 * the 20 top voted witnesses become block producers
-* the 21st is randomly selected by the top voted 21-40 witnesses to incentivise them to run their infrastructure and make sure that backup block producers are available.
+* the 21st is randomly selected by the top voted 21-100 witnesses to incentivise them to run their infrastructure and make sure that backup block producers are available.
 
 The ebakus blockchain by default produces one block every second and at each second only one producer has the authority to produce a block.
 
 
 
 ## Free transactions
+
+One of the main reasons we decided to built ebakus was to improve usability of decentralized applications. When we started looking into viable business models and ideas for dApps, we quickly found out that fees and complex resource management systems really hindered usability. The requirement for users to own an initial token balance in order to interact with decentralized applications was really hurting onboarding of new users that had no previous experience with blockchain applications and it was one of the first problems we built ebakus to solve.
 
 Blockchains today use fees in order to achieve two main goals. First, to mitigate malicious unsolicited flooding of the network with a huge number of transactions in order to affect the quality of service for normal operations, and use up storage and processing capacity. Second, to incentivise the miners or block producers as they collect those fees.
 
@@ -58,10 +60,10 @@ The ebk token is the native token of the ebakus network, its main uses are
 
 Each smart contract in ebakus has its own schema defined database (ESDD). This database can support any number of tables with typed fields and indexes. A smart contract is able to perform the following operations on the data:
 
-1. 1. Create/Drop tables
-   2. Create/Drop indexes on specific fields
-   3. Retrieve/update/delete single or multiple rows of data
-   4. Do ordered range queries on these data
+1. Create/Drop tables
+2. Create/Drop indexes on specific fields
+3. Retrieve/update/delete single or multiple rows of data
+4. Do ordered range queries on these data
 
 The ebakus software makes sure that the data are stored in such a way in order to support the above operations in the most efficient way. The smart contract should not need to implement most common query types by itself.
 

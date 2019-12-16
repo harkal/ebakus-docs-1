@@ -1,5 +1,3 @@
-## Getting started with ebakus development
-
 ebakus based decentralized applications consist of two parts
 
 1. the business logic that is developed through smart contracts in the solidity language and runs on the ebakus network
@@ -7,26 +5,28 @@ ebakus based decentralized applications consist of two parts
 
 To enable developers produce highly responsive and frictionless decentralized applications that are a delight for users to use, we have created the ebakus development stack.
 
-### The ebakus development stack
+
+
+## **The ebakus development stack **
 
 The ebakus development stack consists of
 
-- **the ebakus node:**
+- **[the ebakus node](https://github.com/ebakus/go-ebakus):**
   DPOS, 1 second blocks, ebakusDB
 
-- **web3-ebakus:**
+- **[web3-ebakus](https://github.com/ebakus/web3-ebakus):**
   is an extentention of ethereum's popular web3 library to enable calculation of PoW and access ebakusDB
 
-- **the wallet-loader library:**
+- **[the wallet-loader library](https://github.com/ebakus/ebakus-web-wallet-loader):**
   can be included on any static site and provide an interface to the ebakus blockchain through the web wallet.
 
-- **the ebakus web wallet:**
+- **[the ebakus web wallet](https://github.com/ebakus/ebakus-web-wallet):**
 
   Is the interface to the ebakus network.
 
 The ebakus development stack allows for applications that are as easy to use as any other application built on centralized infrastructure while remaining completely decentralized (without the need to rely on hybrid models).
 
-#### The smart contract
+## **The smart contract**
 
 Smart contracts in the decentralized application context are the business logic and the blockchain is where they are stored and run.
 
@@ -47,7 +47,7 @@ If you already understand the basics of developing smart contracts you may find 
 
 
 
-#### The client logic
+## **The client logic**
 
 The client logic on the other hand works a bit differently as the ebakus development stack utilizes the embedded wallet that drastically improves usability. Lets see just how this works in a bit more detail.
 
