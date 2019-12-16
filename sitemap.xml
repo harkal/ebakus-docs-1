@@ -6,11 +6,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://docs.ebakus.com/migrating-your-erc-20-ebk-to-native-ebk-for-the-mainnet/</loc>
      <lastmod>2019-12-16</lastmod>
      <changefreq>daily</changefreq>
@@ -52,6 +47,26 @@
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus/</loc>
+     <lastmod>2019-12-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.ebakus.com/becoming-a-block-producer/running-a-witness/</loc>
+     <lastmod>2019-12-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.ebakus.com/becoming-a-block-producer/hardening-security/</loc>
+     <lastmod>2019-12-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.ebakus.com/becoming-a-block-producer/proposed-specification/</loc>
      <lastmod>2019-12-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
