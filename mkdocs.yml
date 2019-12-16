@@ -6,9 +6,9 @@ site_author: The Ebakus Team
 
 # Repository
 repo_name: ebakus/ebakus-docs
-repo_url: https://bitbucket.org/harkal/ebakus-docs/
-# repo_url: https://github.com/ebakus/ebakus-docs/
-# edit_uri: edit/master/docs/
+#repo_url: https://bitbucket.org/harkal/ebakus-docs/
+repo_url: https://github.com/ebakus/ebakus-docs/
+edit_uri: edit/master/docs/
 
 
 # Copyright
