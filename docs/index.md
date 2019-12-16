@@ -77,7 +77,7 @@ The EbakusDB layer is providing to the ebakus blockchain a very fast database la
 
 Smart contracts deployed in Ethereum compatibility mode will not be able to make use of the ESDD, hence will not be able to benefit from the extra functionality and performance. Bellow you can see how ebakusDB performs compared with Google's LevelDB. 
 
-![alt text](../img/ebakusdb.jpg "ebakusDB benchmark")
+![alt text](img/ebakusdb.jpg "ebakusDB benchmark")
 
 
 
