@@ -25,11 +25,15 @@ Ebakus has 21 block producers,
 * the 20 top voted witnesses become block producers
 * the 21st is randomly selected by the top voted 21-100 witnesses to incentivise them to run their infrastructure and make sure that backup block producers are available.
 
+![alt text](./img/dpos.jpg "DPOS illustration")
+
 The ebakus blockchain by default produces one block every second and at each second only one producer has the authority to produce a block.
 
 
 
 ## Free transactions
+
+![alt text](../img/ebakus_if.jpg "dApp interfaces with ebakus")
 
 One of the main reasons we decided to built ebakus was to improve usability of decentralized applications. When we started looking into viable business models and ideas for dApps, we quickly found out that fees and complex resource management systems really hindered usability. The requirement for users to own an initial token balance in order to interact with decentralized applications was really hurting onboarding of new users that had no previous experience with blockchain applications and it was one of the first problems we built ebakus to solve.
 
@@ -48,6 +52,8 @@ The PoW quantum is adjusted in a way that, at anytime, the network resources are
 Ebakus wallets will be able to recalculate the PoW required to send a transaction, so even in cases that the account has zero stake and the network is congested, the user experience will be smooth.
 
 ## The EBK token
+
+![alt text](../img/ebk.jpg "ebakus token gives its owner priority")
 
 The ebk token is the native token of the ebakus network, its main uses are
 
@@ -69,7 +75,9 @@ The ebakus software makes sure that the data are stored in such a way in order t
 
 The EbakusDB layer is providing to the ebakus blockchain a very fast database layer that supports O(1) time and space complexity snapshots. This is essential to the operation of a blockchain system that has requirements for querying old block states. The database achieves high performance by being aware of the transactional log functionality that the layer above it is using and not reimplementing it itself. Therefore achieving ACID compliance without sacrificing performance.
 
-Smart contracts deployed in Ethereum compatibility mode will not be able to make use of the ESDD, hence will not be able to benefit from the extra functionality and performance.
+Smart contracts deployed in Ethereum compatibility mode will not be able to make use of the ESDD, hence will not be able to benefit from the extra functionality and performance. Bellow you can see how ebakusDB performs compared with Google's LevelDB. 
+
+![alt text](../img/ebakusdb.jpg "ebakusDB benchmark")
 
 
 
