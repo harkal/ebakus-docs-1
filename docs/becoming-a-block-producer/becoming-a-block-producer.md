@@ -16,5 +16,5 @@ As we mentinoned above being a block producer also means that you are a pillar o
 
 ##### The technical part
 
-For the technical side of things, you can follow our guides of [running a witness](./running-a-witness.md) and [hardening the security](./hardening-security.md) of your server. Ideally block producers should at least follow our [proposed specification](./proposed-specification) as you can find it here.
+For the technical side of things, you can follow our guides of [running a witness](./running-a-witness.md) and [hardening the security](./hardening-security.md) of your server. Ideally block producers should at least follow our [proposed specification](./proposed-specification.md) as you can find it here.
 
