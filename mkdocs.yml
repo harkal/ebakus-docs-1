@@ -28,7 +28,7 @@ nav:
         - Wallet loader: 'developing-applications-with-ebakus/the-ebakus-development-stack/wallet-loader.md'
         - web3-ebakus: 'developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus.md'
   - Becoming a Block Producer:
-    - Becoming a Block Producer: 'becoming-a-block-producer/becoming-a-block-producer.md'
+    - Introduction: 'becoming-a-block-producer/becoming-a-block-producer.md'
     - Running a full node as Witness: 'becoming-a-block-producer/running-a-witness.md'
     - Hardening security: 'becoming-a-block-producer/hardening-security.md'
     - Proposed specification: 'becoming-a-block-producer/proposed-specification.md'

@@ -1,4 +1,4 @@
-# Becoming a Block Producer
+# Introduction
 
 The ebakus blockchain uses Delegated Proof of Stake as its consensus algorythm (DPOS). In DPOS anyone can propose to become part of the infrastructure and produce blocks to receive mining rewards, by running a full node and becoming a witness. Being a witness makes you an embassador of the ebakus ecosystem, besides being a pillar of the network by providing infrastructure you take on the responsibilitty to help it grow. 
 
