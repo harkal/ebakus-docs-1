@@ -27,11 +27,11 @@ nav:
         - Ebakus wallet: 'developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-wallet.md'
         - Wallet loader: 'developing-applications-with-ebakus/the-ebakus-development-stack/wallet-loader.md'
         - web3-ebakus: 'developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus.md'
-  - Becoming a Block Producer:
-    - Introduction: 'becoming-a-block-producer/becoming-a-block-producer.md'
-    - Running a full node as Witness: 'becoming-a-block-producer/running-a-witness.md'
-    - Hardening security: 'becoming-a-block-producer/hardening-security.md'
-    - Proposed specification: 'becoming-a-block-producer/proposed-specification.md'
+ # - Becoming a Block Producer:
+ #   - Introduction: 'becoming-a-block-producer/becoming-a-block-producer.md'
+ #   - Running a full node as Witness: 'becoming-a-block-producer/running-a-witness.md'
+ #   - Hardening security: 'becoming-a-block-producer/hardening-security.md'
+ #   - Proposed specification: 'becoming-a-block-producer/proposed-specification.md'
       
       
 
