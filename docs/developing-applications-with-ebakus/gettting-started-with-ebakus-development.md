@@ -60,4 +60,4 @@ The proposed way to handle client logic uses three components:
 
 3. the ebakus web wallet hosted by a third party or yourself. Allows you to interface with the ebakus blockchain, send transactions, call contract functions and write data to the ebakusDB
 
-If you already have a dApp running on ethereum or you are following a tutorial written for ethereum this article about [migrating your ethereum based dApp to ebakus](./how-to/migrating-your-ethereum-d-app-to-ebakus.md) will be usefull.
+If you already have a dApp running on ethereum or you are following a tutorial written for ethereum this article about [migrating your ethereum based dApp to ebakus](./quick-guides/migrating-your-ethereum-d-app-to-ebakus.md) will be usefull.

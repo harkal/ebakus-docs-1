@@ -20,9 +20,9 @@ nav:
     - Getting started: 'developing-applications-with-ebakus/gettting-started-with-ebakus-development.md'
     - Running a local testnet: 'developing-applications-with-ebakus/running-a-local-testnet.md'
     - Running a development node: 'developing-applications-with-ebakus/running-a-local-development-node.md'
-    - How to:
-      - Migrating your ethereum dApp: 'developing-applications-with-ebakus/how-to/migrating-your-ethereum-d-app-to-ebakus.md'
-      - Using ebakusDB: 'developing-applications-with-ebakus/how-to/using-ebakus-db.md'
+    - Quick guides:
+      - Migrating your ethereum dApp: 'developing-applications-with-ebakus/quick-guides/migrating-your-ethereum-d-app-to-ebakus.md'
+      - Using ebakusDB: 'developing-applications-with-ebakus/quick-guides/using-ebakus-db.md'
     - Ebakus development stack:
       - Ebakus node: 'developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-node.md'
       - Ebakus wallet: 'developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-wallet.md'
