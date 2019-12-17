@@ -26,12 +26,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.ebakus.com/developing-applications-with-ebakus/how-to/migrating-your-ethereum-d-app-to-ebakus/</loc>
+     <loc>https://docs.ebakus.com/developing-applications-with-ebakus/quick-guides/migrating-your-ethereum-d-app-to-ebakus/</loc>
      <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.ebakus.com/developing-applications-with-ebakus/how-to/using-ebakus-db/</loc>
+     <loc>https://docs.ebakus.com/developing-applications-with-ebakus/quick-guides/using-ebakus-db/</loc>
      <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -52,6 +52,16 @@
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus/</loc>
+     <lastmod>2019-12-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.ebakus.com/becoming-a-block-producer/becoming-a-block-producer/</loc>
+     <lastmod>2019-12-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.ebakus.com/becoming-a-block-producer/running-a-witness/</loc>
      <lastmod>2019-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
