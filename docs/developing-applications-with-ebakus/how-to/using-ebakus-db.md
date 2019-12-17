@@ -19,13 +19,13 @@ Smart contracts deployed in Ethereum compatibility mode will not be able to make
 
 ### Truffle Installation
 
-**version 5.0.0**
+First install truffle via npm using `npm install -g truffle`.
 
-First install truffle via npm using `npm install -g truffle` .
+> **version 5.0.0**, at the time of writting this page
 
 Please [visit Truffle's installation guide](https://truffleframework.com/docs/truffle/getting-started/installation "Truffle installation guide") for further information and requirements.
 
-#### Manual install:
+### EbakusDB library linking
 
 This process will allow you to both link your contract to the current on-chain library as well as deploy it in your local environment for development.
 
@@ -36,7 +36,6 @@ This process will allow you to both link your contract to the current on-chain l
 ```js
 var EbakusDB = artifacts.require('EbakusDB');
 var YourContract = artifacts.require("./YourContract.sol");
-...
 
 module.exports = function(deployer) {
     deployer.deploy(EbakusDB, {overwrite: false});
@@ -45,15 +44,17 @@ module.exports = function(deployer) {
 };
 ```
 
-!!!Note:
-    The `.link()` function should be called _before_ you `.deploy(YourStandardTokenContract)`. Also, be sure to include the `{overwrite: false}` when writing the deployer i.e. `.deploy(TokenLib, {overwrite: false})`. This prevents deploying the library onto the main network at your cost and uses the library already on the blockchain. The function should still be called however because it allows you to use it in your development environment. _See below_
+!!! note
+    The `.link()` function should be called _before_ you `.deploy(YourStandardTokenContract)`.
+    Also, be sure to include the `{overwrite: false}` when writing the deployer i.e. `.deploy(EbakusDB, {overwrite: false})`.
+    This prevents deploying the library onto the main network at your cost and uses the library already on the blockchain. The function should still be called however because it allows you to use it in your development environment.
 
 ## Usage Example
 
 You can read about available EbakusDB methods and their documentation inline [here](https://github.com/ebakus/ebakusdb-solidity/blob/master/truffle/contracts/EbakusDB.sol).
 You can find an example contract using the EbakusDB [here](https://github.com/ebakus/ebakusdb-solidity/blob/master/truffle/contracts/examples/Example.sol).
 
-```
+```solidity
 pragma solidity ^0.5.0;
 
 import "./EbakusDB.sol";
@@ -85,6 +86,6 @@ contract Example {
         (u1.Id, u1.Name, u1.Pass) = abi.decode(out, (uint64, string, string));
     }
 
-    ...
+    // more code
 }
 ```

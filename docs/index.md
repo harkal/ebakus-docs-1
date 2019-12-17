@@ -18,22 +18,20 @@ Besides the performance and accessibility improvements, ebakus also extends Soli
 
 Ebakus owes its low latency and high throuput to the Delegated Proof of Stake (DPOS) consensus algorithm that was originally introduced by Dan Larimer and first brought into production in bitshares.
 
-In DPOS the blocks are produced by the *block producers,* which are elected through a continuous approval voting system. Block producers are selected among a number of nodes willing to produce blocks called *witnesses*. Anyone can choose to become a witness, but only those that accumulate the most votes acquire the right to produce blocks. The voting power of each stake holder in the network is proportional to their stake -the number of tokens they hold- in the network. This creates a significantly more agile and attack resilient system than POW. A DPOS system can quickly heal in the events of byzantine actors trying to manipulate the network.
+In DPOS the blocks are produced by the *block producers*, which are elected through a continuous approval voting system. Block producers are selected among a number of nodes willing to produce blocks called *witnesses*. Anyone can choose to become a witness, but only those that accumulate the most votes acquire the right to produce blocks. The voting power of each stake holder in the network is proportional to their stake -the number of tokens they hold- in the network. This creates a significantly more agile and attack resilient system than PoW. A DPOS system can quickly heal in the events of byzantine actors trying to manipulate the network.
 
 Ebakus has 21 block producers,
 
 * the 20 top voted witnesses become block producers
 * the 21st is randomly selected by the top voted 21-100 witnesses to incentivise them to run their infrastructure and make sure that backup block producers are available.
 
-![alt text](./img/dpos.jpg "DPOS illustration")
+![DPOS block producers pickup logic](/img/dpos.jpg "DPOS illustration")
 
 The ebakus blockchain by default produces one block every second and at each second only one producer has the authority to produce a block.
 
-
-
 ## Free transactions
 
-![alt text](../img/ebakus_if.jpg "dApp interfaces with ebakus")
+![alt text](/img/ebakus_if.jpg "dApp interfaces with ebakus")
 
 One of the main reasons we decided to built ebakus was to improve usability of decentralized applications. When we started looking into viable business models and ideas for dApps, we quickly found out that fees and complex resource management systems really hindered usability. The requirement for users to own an initial token balance in order to interact with decentralized applications was really hurting onboarding of new users that had no previous experience with blockchain applications and it was one of the first problems we built ebakus to solve.
 
@@ -53,14 +51,12 @@ Ebakus wallets will be able to recalculate the PoW required to send a transactio
 
 ## The EBK token
 
-![alt text](../img/ebk.jpg "ebakus token gives its owner priority")
+![ebakus token gives its owner priority](/img/ebk.jpg "ebakus token gives its owner priority")
 
-The ebk token is the native token of the ebakus network, its main uses are
+The ebk token is the native token of the ebakus network, its main uses are:
 
 * to vote for block producers and secure the infrastructure of the network
 * to be staked and allow clients to do less proof of work in order to send transactions to the network
-
-
 
 ## ebakusDB
 
@@ -68,40 +64,34 @@ Each smart contract in ebakus has its own schema defined database (ESDD). This d
 
 1. Create/Drop tables
 2. Create/Drop indexes on specific fields
-3. Retrieve/update/delete single or multiple rows of data
-4. Do ordered range queries on these data
+3. Retrieve/Update/Delete single or multiple rows of data
+4. do ordered range queries on these data
 
 The ebakus software makes sure that the data are stored in such a way in order to support the above operations in the most efficient way. The smart contract should not need to implement most common query types by itself.
 
 The EbakusDB layer is providing to the ebakus blockchain a very fast database layer that supports O(1) time and space complexity snapshots. This is essential to the operation of a blockchain system that has requirements for querying old block states. The database achieves high performance by being aware of the transactional log functionality that the layer above it is using and not reimplementing it itself. Therefore achieving ACID compliance without sacrificing performance.
 
-Smart contracts deployed in Ethereum compatibility mode will not be able to make use of the ESDD, hence will not be able to benefit from the extra functionality and performance. Bellow you can see how ebakusDB performs compared with Google's LevelDB. 
+Smart contracts deployed in Ethereum compatibility mode will not be able to make use of the ESDD, hence will not be able to benefit from the extra functionality and performance. Bellow you can see how ebakusDB performs compared with Google's LevelDB.
 
-![alt text](img/ebakusdb.jpg "ebakusDB benchmark")
-
-
+![ebakusDB vs levelDB benchmark](/img/ebakusdb.jpg "ebakusDB benchmark")
 
 ## The ebakus development stack
 
-The ebakus development stack consists of
+The ebakus development stack consists of:
 
-- **the ebakus node:**
+- [**the ebakus node:**](/developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-node.md)
   DPOS, 1 second blocks, ebakusDB
 
-- **web3-ebakus:**
+- [**web3-ebakus:**](/developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus.md)
   is an extentention of ethereum's popular web3 library to enable calculation of PoW and access ebakusDB
 
-- **the wallet-loader library:**
+- [**the wallet-loader library:**](/developing-applications-with-ebakus/the-ebakus-development-stack/wallet-loader.md)
   can be included on any static site and provide an interface to the ebakus blockchain through the web wallet.
 
-- **the ebakus web wallet:**
+- [**the ebakus web wallet:**](/developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-wallet.md) is the interface to the ebakus network.
 
-  Is the interface to the ebakus network.
-
-The ebakus development stack allows for applications that are s easy to use as any other application built on centralized infrastructure while remaining completely decentralized (without the need to rely on hybrid models).  Besides the speed, the key to achieving great UX is avoiding transaction costs either in the form of fees or complicated resource systems, while also remaining sybil resistant.
-
-
+The ebakus development stack allows for applications that are easy to use as any other application built on centralized infrastructure while remaining completely decentralized (without the need to rely on hybrid models).  Besides the speed, the key to achieving great UX is avoiding transaction costs either in the form of fees or complicated resource systems, while also remaining sybil resistant.
 
 ## Building on ebakus
 
-ebakus is quite easy to pick up especially for ethereum and tron developers try our [getting started with ebakus development article](./developing-applications-with-ebakus/gettting-started-with-ebakus-development.md) to familiarize yourself with the ebakus development stack and start building apps in no time.
+ebakus is quite easy to pick up especially for ethereum and tron developers try our [getting started with ebakus development article](/developing-applications-with-ebakus/gettting-started-with-ebakus-development.md) to familiarize yourself with the ebakus development stack and start building apps in no time.
