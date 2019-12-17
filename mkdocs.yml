@@ -7,8 +7,7 @@ site_author: The Ebakus Team
 # Repository
 repo_name: ebakus/ebakus-docs
 repo_url: https://github.com/ebakus/ebakus-docs/
-# edit_uri: edit/master/docs/
-
+edit_uri: edit/develop/docs/
 
 # Copyright
 copyright: 'Copyright &copy; 2019 ebakus - All rights reserved'
