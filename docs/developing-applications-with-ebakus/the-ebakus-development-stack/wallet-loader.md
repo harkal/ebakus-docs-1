@@ -1,6 +1,9 @@
-# Ebakus Wallet Loader
+# Ebakus Web Wallet Loader
 
-The wallet library creates an iframe and loads the web wallet library in there. It can accept custom configurations for the wallet (i.e. load custom tokens) and act as an interface between the dApp and the web wallet iframe. This way a user can use his wallet to interface with any ebakus dApp she wants without having to create new keys and manage multiple accounts.
+The wallet library creates an iframe and loads the web wallet library in there. It can accept custom configurations for the wallet (i.e. load custom tokens) and act as an interface between the dApp and the web wallet iframe. This way a user can use his wallet to interface with any ebakus dApp she wants without having to create new keys and manage multiple accounts, by sharing the same wallet when running in the same browser.
+
+!!! info ""
+    **Safari browser**: Sharing the same wallet accross dApps is not supported (using its default settings).
 
 You can check how it looks like inside [an existing dApp](https://demo.ebakus.com).
 
@@ -49,7 +52,7 @@ or copy it to your site:
 <script src="./dist/wallet-loader.min.js" />
 ```
 
-The script will expose `window.ebakusWallet`. You can also have a look at the [example page](./dist/index.html).
+The script will expose `window.ebakusWallet`. You can also have a look at the [example page](https://github.com/ebakus/ebakus-web-wallet-loader/blob/develop/dist/index.html).
 
 ## API
 
