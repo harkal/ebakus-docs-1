@@ -20,9 +20,9 @@ To pull an image and start a node, run these commands:
 
 ```shell
 docker run -d --name ebakus-node \
-        -v ~/ebakus:/root \
-        -p 30403:30403 \
-        ebakus/go-ebakus
+    -v ~/ebakus:/root \
+    -p 30403:30403 \
+    ebakus/go-ebakus
 ```
 
 It will create a persistent volume in your home directory (~/ebakus) for
@@ -46,7 +46,7 @@ The image has the following ports automatically exposed:
 Now that the ebakus node is up and running, and in order to get access to its built-in interactive JavaScript console we have to run:
 
 ```shell
-docker exec -it ebakus-node /usr/local/bin/ebakus --testnet attach
+docker exec -it ebakus-node ebakus --testnet attach
 ```
 
 !!!tip "Built-in interactive JavaScript console"
@@ -61,10 +61,10 @@ In order to achive this we have to add `--testnet` flag after our `ebakus/go-eba
 
 ```shell
 docker run -d --name ebakus-node \
-           -v ~/ebakus:/root \
-           -p 30403:30403 \
-           ebakus/go-ebakus \
-           --testnet
+    -v ~/ebakus:/root \
+    -p 30403:30403 \
+    ebakus/go-ebakus \
+        --testnet
 ```
 
 !!!tip
@@ -117,13 +117,13 @@ You can reuse the same connection for multiple requests!
 
     ```shell
     docker run -ti --name ebakus-testnet-node \
-               -v ~/ebakus:/root \
-               -p 30403:30403 \
-               -p 8545:8545 \
-               -p 8546:8546 \
-               ebakus/go-ebakus \
-               --testnet \
-               --rpc --rpcaddr 0.0.0.0 \
-               --ws --wsaddr 0.0.0.0 \
-               console
+        -v ~/ebakus:/root \
+        -p 30403:30403 \
+        -p 8545:8545 \
+        -p 8546:8546 \
+        ebakus/go-ebakus \
+            --testnet \
+            --rpc --rpcaddr 0.0.0.0 \
+            --ws --wsaddr 0.0.0.0 \
+            console
     ```

@@ -19,13 +19,6 @@ nav:
   - Developing with ebakus:
     - Getting started: 'developing-applications-with-ebakus/gettting-started-with-ebakus-development.md'
     - Running a local testnet: 'developing-applications-with-ebakus/running-a-local-testnet.md'
- # - Becoming a Block Producer:
- #   - Introduction: 'becoming-a-block-producer/becoming-a-block-producer.md'
- #   - Running a full node as Witness: 'becoming-a-block-producer/running-a-witness.md'
- #   - Hardening security: 'becoming-a-block-producer/hardening-security.md'
- #   - Proposed specification: 'becoming-a-block-producer/proposed-specification.md'
-      
-      
     - Running a development node: 'developing-applications-with-ebakus/running-a-local-development-node.md'
     - How to:
       - Migrating your ethereum dApp: 'developing-applications-with-ebakus/how-to/migrating-your-ethereum-d-app-to-ebakus.md'
@@ -35,6 +28,11 @@ nav:
       - Ebakus wallet: 'developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-wallet.md'
       - Wallet loader: 'developing-applications-with-ebakus/the-ebakus-development-stack/wallet-loader.md'
       - web3-ebakus: 'developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus.md'
+  - Becoming a Block Producer:
+    - Introduction: 'becoming-a-block-producer/becoming-a-block-producer.md'
+    - Running a full node as Witness: 'becoming-a-block-producer/running-a-witness.md'
+    # - Hardening security: 'becoming-a-block-producer/hardening-security.md'
+    # - Proposed specification: 'becoming-a-block-producer/proposed-specification.md'
 
 
 # Configuration
