@@ -88,6 +88,9 @@ extra:
     - type: telegram
       link: https://t.me/ebakus
 
+extra_css:
+  - stylesheets/extra.css
+
 # Extensions
 markdown_extensions:
   - abbr
