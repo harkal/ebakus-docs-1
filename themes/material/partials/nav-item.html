@@ -7,15 +7,11 @@
 {% endif %}
 {% if nav_item.children %}
   <li class="{{ class }} md-nav__item--nested">
-    {#-
     {% if nav_item.active %}
-    -#}
-    <input class="md-toggle md-nav__toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}" checked>
-    {#-
+      <input class="md-toggle md-nav__toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}" checked>
     {% else %}
       <input class="md-toggle md-nav__toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}">
     {% endif %}
-    -#}
     <label class="md-nav__link" for="{{ path }}">
       <strong>{{ nav_item.title }}</strong>
     </label>
