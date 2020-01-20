@@ -106,6 +106,9 @@ And send the transaction:
 > eth.sendTransaction(txWithPow);
 ```
 
+!!! info
+    For more information on PoW check [here](../developing-applications-with-ebakus/proof-of-work.md).
+
 ## Start the producer
 
 Once you are ready, set node active for producing.
