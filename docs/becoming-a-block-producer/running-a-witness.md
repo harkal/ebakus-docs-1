@@ -13,16 +13,6 @@ mkdir -p ${BASE_PATH}
 !!! important
     This doc refers on how to become a block producer on the **mainnet** which is not launched yet. If you would like to experiment on **testnet** add the `--testnet` flag.
 
-## Create bootnode.key
-
-Clone our checkout the [ebakus/go-ebakus](https://github.com/ebakus/go-ebakus) repo locally. Then install the `bootnode` cmd in order to get a `bootnode.key`. From the root folder of the repo run:
-
-```bash
-go install -v ./cmd/bootnode
-
-bootnode -genkey ${BASE_PATH}/bootnode.key
-```
-
 ## Create an account for the block producer
 
 ### Create a password file for your account
@@ -65,9 +55,6 @@ docker run -d --name ebakus-producer \
     -p 30403:30403 \
     -p 30403:30403/udp \
     ebakus/go-ebakus \
-        --nodekey /root/bootnode.key \
-        --maxpeers 25 \
-        --maxpendpeers 25 \
         --etherbase 0xA356eF85BB1740eC494B3c4eDA230aBd64D571F8 \
         --unlock 0xA356eF85BB1740eC494B3c4eDA230aBd64D571F8 \
         --password /root/passwd
@@ -106,12 +93,21 @@ docker exec -it ebakus-producer ebakus attach
 And send the transaction:
 
 ```js
-> eth.sendTransaction({
+> var tx = {
     from: eth.coinbase,
     to: '0x0000000000000000000000000000000000000101',
-    data: '0xe0a1ea960000000000000000000000000000000000000000000000000000000000000001'
-});
+    data: '0xe0a1ea960000000000000000000000000000000000000000000000000000000000000001',
+    nonce: eth.getTransactionCount(eth.coinbase)
+};
+> tx.gas = eth.estimateGas(tx);
+
+> var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+
+> eth.sendTransaction(txWithPow);
 ```
+
+!!! info
+    For more information on PoW check [here](../developing-applications-with-ebakus/proof-of-work.md).
 
 ## Start the producer
 

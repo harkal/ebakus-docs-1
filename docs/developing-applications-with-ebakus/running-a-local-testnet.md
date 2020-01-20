@@ -62,14 +62,20 @@ Using the javascript console of the Ebakus node you can deploy contracts and iss
 **Example of sending ebakus tokens:**
 
 ```js
-> eth.sendTransaction({
-    from: '0xB2b3510C106E8e04Acfb9841e2213500167100f3',
+var tx = {
+    from: eth.coinbase,
     to: '0x8f10d3a6283672ecfaeea0377d460bded489ec44',
-    value: web3.toWei(10)
-})
+    value: web3.toWei(10),
+    nonce: eth.getTransactionCount(eth.coinbase)
+};
+tx.gas = eth.estimateGas(tx);
+
+var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+
+eth.sendTransaction(txWithPow);
 ```
 
-As you see, no gas needs to be spend, hence no gas price is set. Calculation of PoW for the transactions is automaticaly handled by `sendTransaction`.
+As you see, no gas needs to be spend, hence no gas price is set. For more information on PoW check [here](./proof-of-work.md).
 
 #### Deploying your Ethereum Contracts on Ebakus
 
@@ -109,11 +115,19 @@ As you see, no gas needs to be spend, hence no gas price is set. Calculation of 
 5. Deploy
 
     ```js
-    > var game = myContract.new({
+    > var tx = {
         from: eth.coinbase,
         data: bytecode,
-        gas: 2000000
-    })
+        nonce: eth.getTransactionCount(eth.coinbase)
+    };
+
+    // add constructor args, if needed
+    // > tx.data = contract.getData(arg1, arg2, tx);
+
+    > tx.gas = eth.estimateGas(tx);
+    > var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+
+    > var game = myContract.new(txWithPow)
     ```
 
 6. Interact with contract
