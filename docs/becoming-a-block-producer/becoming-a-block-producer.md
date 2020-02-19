@@ -1,6 +1,6 @@
 # Introduction
 
-The ebakus blockchain uses Delegated Proof of Stake as its consensus algorythm (DPOS). In DPOS anyone can propose to become part of the infrastructure and produce blocks to receive mining rewards, by running a full node and becoming a witness. Being a witness makes you an embassador of the ebakus ecosystem, besides being a pillar of the network by providing infrastructure you take on the responsibilitty to help it grow.
+The ebakus blockchain uses Delegated Proof of Stake as its consensus algorithm (DPOS). In DPOS anyone can propose to become part of the infrastructure and produce blocks to receive mining rewards, by running a full node and becoming a witness. Being a witness makes you an embassador of the ebakus ecosystem, besides being a pillar of the network by providing infrastructure you take on the responsibilitty to help it grow.
 
 In ebakus, EBK token holders can cast 1 vote for every EBK they hold, to up to 20 witnesses at a time. Witnesses campaign for votes from the EBK token holders and when they manage to gather enough votes to enter the top 20 most voted, they elevate to block producer status. As block producers they are actively part of the consensus by producing blocks and earning mining rewards for every block they produce.
 
