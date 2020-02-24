@@ -5,7 +5,7 @@ The wallet library creates an iframe and loads the web wallet library in there. 
 !!! info ""
     **Safari browser**: Sharing the same wallet accross dApps is not supported (using its default settings).
 
-You can check how it looks like inside [an existing dApp](https://demo.ebakus.com).
+You can check how it looks like inside [an existing dApp](https://ebakus.dslots.one).
 
 ## The boilerplate
 

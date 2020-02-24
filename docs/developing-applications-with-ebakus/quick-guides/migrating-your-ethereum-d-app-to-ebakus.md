@@ -55,4 +55,4 @@ After loading it, you can easily interface with the wallet through its [API](../
 
 You may further want to optimize your dApp’s code to take advantage of ebakus’ lower latency (1 sec) and to leverage ebakusDB. EbakusDB allows you to use schema defined tables, with indexes that allows handling large datasets with ease. EbakusDB integration to EVM is already implemented and active in our testnet and an article describing how you can utilize it, is in the works. If you feel adventurous feel free to check out [this **indie leaderboard repository**](https://github.com/ebakus/indy-leaderboard) where we implement a leaderboard-achievements solution running completely decentralized on ebakus, leveraging ebakusDB.
 
-You can also further study **a real world migration example** of an ethereum [dApp](https://demo.ebakus.com/) to ebakus [**here**](https://github.com/ziogaschr/nifty-game/commit/6fe8ecce30cca567d58ee3b30ce9df3978c03cee).
+You can also further study **a real world migration example** of an ethereum [dApp](https://ebakus.dslots.one) to ebakus [**here**](https://github.com/ziogaschr/nifty-game/commit/6fe8ecce30cca567d58ee3b30ce9df3978c03cee).
