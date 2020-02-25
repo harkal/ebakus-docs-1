@@ -47,7 +47,7 @@ From the above we need to note our public address. That is `0xA356eF85BB1740eC49
 
 ## Start the producer
 
-We start our producer, having opened the `30403` port in the docker for connecting to the P2P network. We then set our `nodekey`, `etherbase` and `password` as well unlocking the account.
+We start our producer, having opened the `30403` port in the docker for connecting to the P2P network. We then set our `etherbase` and `password` as well unlocking the account.
 
 ```bash
 docker run -d --name ebakus-producer \
@@ -81,6 +81,22 @@ And also to check if the blockNumber is the latest one in our [explorer](https:/
 > eth.blockNumber
 ```
 
+## Start the producer
+
+Once you are ready, set node active for producing.
+
+```bash
+docker exec -it ebakus-producer ebakus attach
+```
+
+```js
+> miner.start()
+true
+```
+
+!!! tip
+    After the initial sync and being added as a witness you can add `--mine` flag in the docker startup script for auto mining. Also you ask docker to automatically restart when something happens `--restart unless-stopped` in the docker params.
+
 
 ## Elect as a witness
 
@@ -108,22 +124,6 @@ And send the transaction:
 
 !!! info
     For more information on PoW check [here](../developing-applications-with-ebakus/proof-of-work.md).
-
-## Start the producer
-
-Once you are ready, set node active for producing.
-
-```bash
-docker exec -it ebakus-producer ebakus attach
-```
-
-```js
-> miner.start()
-true
-```
-
-!!! tip
-    After the initial sync and being added as a witness you can add `--mine` flag in the docker startup script for auto mining. Also you ask docker to automatically restart when something happens `--restart unless-stopped` in the docker params.
 
 
 ## Be voted

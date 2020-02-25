@@ -6,13 +6,13 @@ For syncing with the testnet the easiest way is using docker. For doing this, yo
 
 ```bash
 docker run -ti --name ebakus-testnet-node \
-           -v ~/ebakus:/root \
-           -p 30403:30403 \
-           -p 8545:8545 \
-           ebakus/go-ebakus \
-           --testnet \
-           --rpc --rpcaddr 0.0.0.0 \
-           console
+    -v ~/ebakus:/root \
+    -p 30403:30403 \
+    -p 8545:8545 \
+    ebakus/go-ebakus \
+        --testnet \
+        --rpc --rpcaddr 0.0.0.0 \
+        console
 ```
 
 ### Interact with the ebakus node
