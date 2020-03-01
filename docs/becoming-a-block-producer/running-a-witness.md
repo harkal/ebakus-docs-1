@@ -45,7 +45,7 @@ docker run --rm --name ebakus-producer \
 
 From the above we need to note our public address. That is `0xA356eF85BB1740eC494B3c4eDA230aBd64D571F8` in this example.
 
-## Start the producer
+## Starting the producer
 
 We start our producer, having opened the `30403` port in the docker for connecting to the P2P network. We then set our `etherbase` and `password` as well unlocking the account.
 
@@ -59,6 +59,19 @@ docker run -d --name ebakus-producer \
         --unlock 0xA356eF85BB1740eC494B3c4eDA230aBd64D571F8 \
         --password /root/passwd
 ```
+
+## Stopping the producer
+
+It is important that you properly stop a running produser. Simply killing the ebakus process, or the docker container, will probably result in a corrupted state database that will require a complete resync of the node. 
+
+To avoid the constly resync, it is important to allow the producer to gracefully shutdown. We do this by sending it the SIGTERM signal. This is accomplished by the command below:
+
+```bash
+docker kill --signal=SIGTERM ebakus-producer
+```
+
+!!! info
+    Stopping a producer will result in missed blocks. Read the `Step down as a witness` section in this guide on how to avoid this. 
 
 ## Monitor syncing
 
@@ -81,7 +94,7 @@ And also to check if the blockNumber is the latest one in our [explorer](https:/
 > eth.blockNumber
 ```
 
-## Start the producer
+## Control the producer
 
 Once you are ready, set node active for producing.
 
@@ -98,7 +111,7 @@ true
     After the initial sync and being added as a witness you can add `--mine` flag in the docker startup script for auto mining. Also you ask docker to automatically restart when something happens `--restart unless-stopped` in the docker params.
 
 
-## Elect as a witness
+## Allow to be voted as a witness
 
 For electing ourselves as a witness we have to send a transaction on the main system contract `0x0000000000000000000000000000000000000101`. For doing so we need to attach to the docker container:
 
@@ -125,6 +138,31 @@ And send the transaction:
 !!! info
     For more information on PoW check [here](../developing-applications-with-ebakus/proof-of-work.md).
 
+## Step down as a witness
+
+There are cases when you will need to step down from producing blocks. These include:
+
+* Experiencing technical difficulties
+* During software updates
+* No longer wanting to participate in the Ebakus network
+
+In these cases or any other when you will not be able/willing to produce blocks, it is important that you inform the network of your intention by setting "electEnable" to false. Users are monitoring the network for producers that miss blocks, and you don't want to be seen as a bad performing producer possibly resulting in lost votes. Setting "electEnable" to false will prevent you from losing blocks while you are experiencing any difficulty. 
+
+To set "electEnable" to false you must again send a transaction to the system like this: 
+
+```js
+> var tx = {
+    from: eth.coinbase,
+    to: '0x0000000000000000000000000000000000000101',
+    data: '0xe0a1ea960000000000000000000000000000000000000000000000000000000000000000',
+    nonce: eth.getTransactionCount(eth.coinbase)
+};
+> tx.gas = eth.estimateGas(tx);
+
+> var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+
+> eth.sendTransaction(txWithPow);
+```
 
 ## Be voted
 
