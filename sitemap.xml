@@ -2,72 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://docs.ebakus.com/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/migrating-your-erc-20-ebk-to-native-ebk-for-the-mainnet/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/gettting-started-with-ebakus-development/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/proof-of-work/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/running-a-local-testnet/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/running-a-local-development-node/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/quick-guides/migrating-your-ethereum-d-app-to-ebakus/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/quick-guides/using-ebakus-db/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-node/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/the-ebakus-development-stack/ebakus-wallet/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/the-ebakus-development-stack/wallet-loader/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/developing-applications-with-ebakus/the-ebakus-development-stack/web3-ebakus/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/becoming-a-block-producer/becoming-a-block-producer/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.ebakus.com/becoming-a-block-producer/running-a-witness/</loc>
-     <lastmod>2020-02-26</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
