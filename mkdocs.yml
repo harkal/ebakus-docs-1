@@ -21,6 +21,7 @@ nav:
     - Proof of Work (PoW): 'developing-applications-with-ebakus/proof-of-work.md'
     - Running a local testnet: 'developing-applications-with-ebakus/running-a-local-testnet.md'
     - Running a development node: 'developing-applications-with-ebakus/running-a-local-development-node.md'
+    - System contract: 'developing-applications-with-ebakus/system-contract.md'
     - Quick guides:
       - Migrating your ethereum dApp: 'developing-applications-with-ebakus/quick-guides/migrating-your-ethereum-d-app-to-ebakus.md'
       - Using ebakusDB: 'developing-applications-with-ebakus/quick-guides/using-ebakus-db.md'
