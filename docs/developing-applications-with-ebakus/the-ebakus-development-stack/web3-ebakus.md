@@ -18,6 +18,9 @@ Load it from CDN:
 <script src="https://unpkg.com/web3-ebakus"></script>
 ```
 
+!!! note
+    You can find what is the latest version number of the library [here](https://www.npmjs.com/package/web3-ebakus). The script tag above to `unpkg.com` points to latest endpoint which does a redirect.
+
 or build running the following from the root folder of the repository:
 
 ```bash
