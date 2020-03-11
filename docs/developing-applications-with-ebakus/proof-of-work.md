@@ -38,17 +38,16 @@ Below you can find examples of sending a simple transaction either through go-eb
 ### From go-ebakus console
 
 ```js
-> var tx = {
+var tx = {
     from: eth.coinbase,
     to: '0x8f10d3a6283672ecfaeea0377d460bded489ec44',
     value: web3.toWei(10),
     nonce: eth.getTransactionCount(eth.coinbase)
 };
-> tx.gas = eth.estimateGas(tx);
+tx.gas = eth.estimateGas(tx);
 
-> var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
-
-> eth.sendTransaction(txWithPow);
+var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+eth.sendTransaction(txWithPow);
 ```
 
 ### From web3.js of your dApp

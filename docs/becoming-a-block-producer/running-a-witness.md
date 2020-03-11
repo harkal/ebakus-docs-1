@@ -84,14 +84,16 @@ docker exec -it ebakus-producer ebakus attach
 Inside the attached console we can check if we are currently syncing which has to return `false`.
 
 ```js
-> eth.syncing
-false
+eth.syncing
+
+// -- Output --
+// false
 ```
 
 And also to check if the blockNumber is the latest one in our [explorer](https://explorer.ebakus.com/blocks) as well.
 
 ```js
-> eth.blockNumber
+eth.blockNumber
 ```
 
 ## Control the producer
@@ -103,8 +105,10 @@ docker exec -it ebakus-producer ebakus attach
 ```
 
 ```js
-> miner.start()
-true
+miner.start()
+
+// -- Output --
+// true
 ```
 
 !!! tip
@@ -122,17 +126,17 @@ docker exec -it ebakus-producer ebakus attach
 And send the transaction:
 
 ```js
-> var tx = {
+var tx = {
     from: eth.coinbase,
     to: '0x0000000000000000000000000000000000000101',
     data: '0xe0a1ea960000000000000000000000000000000000000000000000000000000000000001',
     nonce: eth.getTransactionCount(eth.coinbase)
 };
-> tx.gas = eth.estimateGas(tx);
 
-> var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+tx.gas = eth.estimateGas(tx);
 
-> eth.sendTransaction(txWithPow);
+var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+eth.sendTransaction(txWithPow);
 ```
 
 !!! info
@@ -151,17 +155,16 @@ In these cases or any other when you will not be able/willing to produce blocks,
 To set "electEnable" to false you must again send a transaction to the system like this: 
 
 ```js
-> var tx = {
+var tx = {
     from: eth.coinbase,
     to: '0x0000000000000000000000000000000000000101',
     data: '0xe0a1ea960000000000000000000000000000000000000000000000000000000000000000',
     nonce: eth.getTransactionCount(eth.coinbase)
 };
-> tx.gas = eth.estimateGas(tx);
+tx.gas = eth.estimateGas(tx);
 
-> var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
-
-> eth.sendTransaction(txWithPow);
+var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
+eth.sendTransaction(txWithPow);
 ```
 
 ## Be voted
