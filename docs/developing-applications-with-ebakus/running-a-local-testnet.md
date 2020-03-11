@@ -15,6 +15,9 @@ docker run -ti --name ebakus-testnet-node \
         console
 ```
 
+!!! important
+    All the code snippets in this page include JS code that can be run in the go-ebakus consoles' web3 version.
+
 ### Interact with the ebakus node
 
 After the node syncs with the network and you attach to it you will be able to issue commands in the console. For example:
