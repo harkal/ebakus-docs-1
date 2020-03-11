@@ -62,7 +62,7 @@ docker run -d --name ebakus-producer \
 
 ## Stopping the producer
 
-It is important that you properly stop a running produser. Simply killing the ebakus process, or the docker container, will probably result in a corrupted state database that will require a complete resync of the node. 
+It is important that you properly stop a running produser. Simply killing the ebakus process, or the docker container, will probably result in a corrupted state database that will require a complete resync of the node.
 
 To avoid the constly resync, it is important to allow the producer to gracefully shutdown. We do this by sending it the SIGTERM signal. This is accomplished by the command below:
 
@@ -71,7 +71,7 @@ docker kill --signal=SIGTERM ebakus-producer
 ```
 
 !!! info
-    Stopping a producer will result in missed blocks. Read the `Step down as a witness` section in this guide on how to avoid this. 
+    Stopping a producer will result in missed blocks. Read the `Step down as a witness` section in this guide on how to avoid this.
 
 ## Monitor syncing
 
@@ -117,30 +117,24 @@ miner.start()
 
 ## Allow to be voted as a witness
 
-For electing ourselves as a witness we have to send a transaction on the main system contract `0x0000000000000000000000000000000000000101`. For doing so we need to attach to the docker container:
+For electing ourselves as a witness we have to send a transaction on the [system contract](/developing-applications-with-ebakus/system-contract) `0x0000000000000000000000000000000000000101`. For doing so we need to attach to the docker container:
 
 ```bash
 docker exec -it ebakus-producer ebakus attach
 ```
 
-And send the transaction:
+To set "[electEnable](/developing-applications-with-ebakus/system-contract/#electenablebool)" to `true` you must again send a transaction to the system like this:
 
 ```js
-var tx = {
-    from: eth.coinbase,
-    to: '0x0000000000000000000000000000000000000101',
-    data: '0xe0a1ea960000000000000000000000000000000000000000000000000000000000000001',
-    nonce: eth.getTransactionCount(eth.coinbase)
-};
+var systemContractAddress = '0x0000000000000000000000000000000000000101';
+var electEnableSystemContractABI = [{"inputs":[{"name":"enable","type":"bool"}],"name":"electEnable","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+var systemContract = eth.contract(electEnableSystemContractABI).at(systemContractAddress);
 
-tx.gas = eth.estimateGas(tx);
-
-var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
-eth.sendTransaction(txWithPow);
+systemContract.electEnable(true);
 ```
 
-!!! info
-    For more information on PoW check [here](../developing-applications-with-ebakus/proof-of-work.md).
+??? info "Information on Proof of Work (PoW)"
+    For more information on PoW check [here](/developing-applications-with-ebakus/proof-of-work.md).
 
 ## Step down as a witness
 
@@ -150,26 +144,48 @@ There are cases when you will need to step down from producing blocks. These inc
 * During software updates
 * No longer wanting to participate in the Ebakus network
 
-In these cases or any other when you will not be able/willing to produce blocks, it is important that you inform the network of your intention by setting "electEnable" to false. Users are monitoring the network for producers that miss blocks, and you don't want to be seen as a bad performing producer possibly resulting in lost votes. Setting "electEnable" to false will prevent you from losing blocks while you are experiencing any difficulty. 
+In these cases or any other when you will not be able/willing to produce blocks, it is important that you inform the network of your intention by setting "[electEnable](/developing-applications-with-ebakus/system-contract/#electenablebool)" to `false`. Users are monitoring the network for producers that miss blocks, and you don't want to be seen as a bad performing producer possibly resulting in lost votes. Setting "[electEnable](/developing-applications-with-ebakus/system-contract/#electenablebool)" to `false` will prevent you from losing blocks while you are experiencing any difficulty.
 
-To set "electEnable" to false you must again send a transaction to the system like this: 
+To set "[electEnable](/developing-applications-with-ebakus/system-contract/#electenablebool)" to `false` you must again send a transaction to the system like this:
 
 ```js
-var tx = {
-    from: eth.coinbase,
-    to: '0x0000000000000000000000000000000000000101',
-    data: '0xe0a1ea960000000000000000000000000000000000000000000000000000000000000000',
-    nonce: eth.getTransactionCount(eth.coinbase)
-};
-tx.gas = eth.estimateGas(tx);
+var systemContractAddress = '0x0000000000000000000000000000000000000101';
+var electEnableSystemContractABI = [{"inputs":[{"name":"enable","type":"bool"}],"name":"electEnable","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+var systemContract = eth.contract(electEnableSystemContractABI).at(systemContractAddress);
 
-var txWithPow = eth.calculateWorkNonce(tx, eth.suggestDifficulty(eth.coinbase));
-eth.sendTransaction(txWithPow);
+systemContract.electEnable(false);
 ```
 
 ## Be voted
 
-In order to produce a block you need to be in the top 100 witnesses. For doing this help the community and ask others to vote you.
+In order to produce a block you need to be in the top 100 witnesses. For attracting others to vote you, you can help the community and ask others to vote you.
 
 !!! tip
     Don't forget to vote for yourself!!! 😀
+
+    The easier way to vote is by visiting the [Ebakus explorer statistics](https://explorer.ebakus.com/statistics) and use the Ebakus wallet.
+
+    Although, in case you want to vote yourself from within the go-ebakus node, here is some example code. This example will stake your whole balance at the moment running the command.
+
+    **Stake whole balance**
+
+    ```js
+    var systemContractAddress = '0x0000000000000000000000000000000000000101';
+    var stakeSystemContractABI = [{"inputs":[{"name":"amount","type":"uint64"}],"name":"stake","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+    var systemContract = eth.contract(stakeSystemContractABI).at(systemContractAddress);
+
+    var balance = web3.fromWei(eth.getBalance(eth.coinbase));
+    var stakeAmount = parseInt(balance * 10000);
+
+    systemContract.stake(stakeAmount);
+    ```
+
+    **Vote yourself**
+
+    ```js
+    var systemContractAddress = '0x0000000000000000000000000000000000000101';
+    var voteSystemContractABI = [{"inputs":[{"name":"addresses","type":"address[]"}],"name":"vote","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+    var systemContract = eth.contract(voteSystemContractABI).at(systemContractAddress);
+
+    systemContract.vote([eth.coinbase]);
+    ```
