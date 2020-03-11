@@ -108,5 +108,10 @@ markdown_extensions:
   - toc:
       permalink: True
   - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.magiclink:
+      repo_url_shortener: true
+      repo_url_shorthand: true
+      social_url_shorthand: true
 
 # google_analytics: ['', 'docs.ebakus.com']
