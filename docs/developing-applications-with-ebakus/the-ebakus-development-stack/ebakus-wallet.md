@@ -1,4 +1,4 @@
-# Ebakus Web Wallet
+# Ebakus Web Wallet [![GitHub stars](https://img.shields.io/github/stars/ebakus/ebakus-web-wallet.svg?style=social&label=ebakus/ebakus-web-wallet&maxAge=2592000)](https://github.com/ebakus/ebakus-web-wallet)
 
 This is the official web wallet which can be embedded into a dApp page to interact with the Ebakus blockchain.
 

@@ -1,4 +1,4 @@
-# web3-ebakus library for web3.js
+# web3-ebakus library for web3.js [![GitHub stars](https://img.shields.io/github/stars/ebakus/web3-ebakus.svg?style=social&label=ebakus/web3-ebakus&maxAge=2592000)](https://github.com/ebakus/web3-ebakus)
 
 Extend Web3.js functionality for [Ebakus](https://ebakus.com) blockchain.
 

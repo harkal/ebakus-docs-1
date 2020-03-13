@@ -1,4 +1,4 @@
-# Ebakus Web Wallet Loader
+# Ebakus Web Wallet Loader [![GitHub stars](https://img.shields.io/github/stars/ebakus/ebakus-web-wallet-loader.svg?style=social&label=ebakus/ebakus-web-wallet-loader&maxAge=2592000)](https://github.com/ebakus/ebakus-web-wallet-loader)
 
 The wallet library creates an iframe and loads the web wallet library in there. It can accept custom configurations for the wallet (i.e. load custom tokens) and act as an interface between the dApp and the web wallet iframe. This way a user can use his wallet to interface with any ebakus dApp she wants without having to create new keys and manage multiple accounts, by sharing the same wallet when running in the same browser.
 
