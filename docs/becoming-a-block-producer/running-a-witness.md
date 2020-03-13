@@ -11,7 +11,7 @@ mkdir -p ${BASE_PATH}
 ```
 
 !!! important
-    This doc refers on how to become a block producer on the **mainnet** which is not launched yet. If you would like to experiment on **testnet** add the `--testnet` flag.
+    This doc refers on how to become a block producer on the **mainnet**. If you would like to experiment on **testnet** add the `--testnet` flag.
 
 ## Create an account for the block producer
 
