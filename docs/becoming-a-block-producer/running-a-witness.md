@@ -127,8 +127,9 @@ To set "[electEnable](/developing-applications-with-ebakus/system-contract/#elec
 
 ```js
 var systemContractAddress = '0x0000000000000000000000000000000000000101';
-var electEnableSystemContractABI = [{"inputs":[{"name":"enable","type":"bool"}],"name":"electEnable","outputs":[],"stateMutability":"nonpayable","type":"function"}];
-var systemContract = eth.contract(electEnableSystemContractABI).at(systemContractAddress);
+var systemContractABI = eth.getAbiForAddress(systemContractAddress);
+systemContractABI = JSON.parse(systemContractABI);
+var systemContract = eth.contract(systemContractABI).at(systemContractAddress);
 
 systemContract.electEnable(true);
 ```
@@ -150,8 +151,9 @@ To set "[electEnable](/developing-applications-with-ebakus/system-contract/#elec
 
 ```js
 var systemContractAddress = '0x0000000000000000000000000000000000000101';
-var electEnableSystemContractABI = [{"inputs":[{"name":"enable","type":"bool"}],"name":"electEnable","outputs":[],"stateMutability":"nonpayable","type":"function"}];
-var systemContract = eth.contract(electEnableSystemContractABI).at(systemContractAddress);
+var systemContractABI = eth.getAbiForAddress(systemContractAddress);
+systemContractABI = JSON.parse(systemContractABI);
+var systemContract = eth.contract(systemContractAddress).at(systemContractAddress);
 
 systemContract.electEnable(false);
 ```
@@ -171,8 +173,9 @@ In order to produce a block you need to be in the top 100 witnesses. For attract
 
     ```js
     var systemContractAddress = '0x0000000000000000000000000000000000000101';
-    var stakeSystemContractABI = [{"inputs":[{"name":"amount","type":"uint64"}],"name":"stake","outputs":[],"stateMutability":"nonpayable","type":"function"}];
-    var systemContract = eth.contract(stakeSystemContractABI).at(systemContractAddress);
+    var systemContractABI = eth.getAbiForAddress(systemContractAddress);
+    systemContractABI = JSON.parse(systemContractABI);
+    var systemContract = eth.contract(systemContractABI).at(systemContractAddress);
 
     var balance = web3.fromWei(eth.getBalance(eth.coinbase));
     var stakeAmount = parseInt(balance * 10000);
@@ -184,8 +187,9 @@ In order to produce a block you need to be in the top 100 witnesses. For attract
 
     ```js
     var systemContractAddress = '0x0000000000000000000000000000000000000101';
-    var voteSystemContractABI = [{"inputs":[{"name":"addresses","type":"address[]"}],"name":"vote","outputs":[],"stateMutability":"nonpayable","type":"function"}];
-    var systemContract = eth.contract(voteSystemContractABI).at(systemContractAddress);
+    var systemContractABI = eth.getAbiForAddress(systemContractAddress);
+    systemContractABI = JSON.parse(systemContractABI);
+    var systemContract = eth.contract(systemContractABI).at(systemContractAddress);
 
     systemContract.vote([eth.coinbase]);
     ```

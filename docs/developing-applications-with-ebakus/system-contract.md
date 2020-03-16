@@ -4,57 +4,73 @@ The system contract adds support for fundamental actions needed by the system as
 
 In order to use this contract, first and foremost you have to know the systems' contract ABI. You can get this:
 
+- using web3.js
+
+    ```js
+     web3.eth.getAbiForAddress('0x0000000000000000000000000000000000000101')
+        .then(function(systemContractABIString) {
+            const systemContractABI = JSON.parse(systemContractABIString)
+        })
+    ```
+
 - either copy/paste it from [here](https://explorer-api.ebakus.com/abi/0x0000000000000000000000000000000000000101){:target="_blank" rel="noopener"}
 
 - by calling the `getAbiForAddress` on the system contract itself with code similar to this [gist](https://gist.github.com/ziogaschr/61c4d3ba3b1e47f10164a296e3222511#file-web3-ebakus-examples-html-L24-L61){:target="_blank" rel="noopener"}
 
 - by fetching it from our Explorer API
+
     ```sh
     curl https://explorer-api.ebakus.com/abi/0x0000000000000000000000000000000000000101
     ```
 
 !!! example "Example on how to use the system contract"
+
     ```js tab="Web3.js"
     var systemContractAddress = '0x0000000000000000000000000000000000000101';
-    var stakeSystemContractABI = [{ "inputs": [{ "name": "amount", "type": "uint64" }], "name": "stake", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
-    var systemContract = new web3.eth.Contract(stakeSystemContractABI, systemContractAddress)
+    web3.eth.getAbiForAddress(systemContractAddress)
+        .then(function(systemContractABIString) {
+            const systemContractABI = JSON.parse(systemContractABIString)
 
-    var account = '0x...';
-    var stakeAmount = 3 * 10000; // 3 EBK
+            var systemContract = new web3.eth.Contract(systemContractABI, systemContractAddress);
 
-    var tx = {
-        from: account,
-        to: systemContractAddress,
-        data: systemContract.methods.stake(stakeAmount).encodeABI()
-    }
+            var account = '0x...';
+            var stakeAmount = 3 * 10000; // 3 EBK
 
-    web3.eth.estimateGas(tx)
-        .then(function (gas) {
-            tx.gas = gas
-            return web3.eth.suggestDifficulty(account)
+            var tx = {
+                from: account,
+                to: systemContractAddress,
+                data: systemContract.methods.stake(stakeAmount).encodeABI()
+            }
+
+            web3.eth.estimateGas(tx)
+                .then(function (gas) {
+                    tx.gas = gas
+                    return web3.eth.suggestDifficulty(account)
+                })
+                .then(function (difficulty) {
+                    return web3.eth.calculateWorkForTransaction(tx, difficulty)
+                })
+                .then(function (txWithPow) {
+                    return web3.eth.sendTransaction(txWithPow)
+                })
+                .then(function (receipt) {
+                    console.log('Tx receipt', receipt)
+                })
+
+
+            // or
+            // systemContract.methods.stake(stakeAmount).send({from: account})
+            //    .then(function (receipt) {
+            //        console.log('Tx receipt', receipt)
+            //    })
         })
-        .then(function (difficulty) {
-            return web3.eth.calculateWorkForTransaction(tx, difficulty)
-        })
-        .then(function (txWithPow) {
-            return web3.eth.sendTransaction(txWithPow)
-        })
-        .then(function (receipt) {
-            console.log('Tx receipt', receipt)
-        })
-
-
-    // or
-    // systemContract.methods.stake(stakeAmount).send({from: account})
-    //    .then(function (receipt) {
-    //        console.log('Tx receipt', receipt)
-    //    })
     ```
 
     ```js tab="go-ebakus console"
     var systemContractAddress = '0x0000000000000000000000000000000000000101';
-    var stakeSystemContractABI = [{"inputs":[{"name":"amount","type":"uint64"}],"name":"stake","outputs":[],"stateMutability":"nonpayable","type":"function"}];
-    var systemContract = eth.contract(stakeSystemContractABI).at(systemContractAddress);
+    var systemContractABI = eth.getAbiForAddress(systemContractAddress);
+    systemContractABI = JSON.parse(systemContractABI);
+    var systemContract = eth.contract(systemContractABI).at(systemContractAddress);
 
     var balance = web3.fromWei(eth.getBalance(eth.coinbase));
     var stakeAmount = parseInt(balance * 10000);
